@@ -41,7 +41,12 @@ class _RootState extends State<Root> {
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(10),
          decoration: BoxDecoration(
-           borderRadius: BorderRadius.circular(30),
+           borderRadius: BorderRadius.only(
+             bottomRight: Radius.circular(0),
+             bottomLeft: Radius.circular(0),
+             topRight: Radius.circular(30),
+             topLeft: Radius.circular(30),
+           ),
            color: AppColors.primaryColor
          ),
         child: BottomNavigationBar(
