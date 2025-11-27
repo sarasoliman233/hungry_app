@@ -41,7 +41,7 @@ class ToppingCard extends StatelessWidget {
 
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Image.asset(image,fit: BoxFit.contain),
+                  child: Image.network(image,fit: BoxFit.contain),
                 ),
               ),
             )),
@@ -51,13 +51,13 @@ class ToppingCard extends StatelessWidget {
             left: 0,
             bottom: 0,
             child: Padding(
-              padding: const EdgeInsets.all( 12.0),
+              padding: const EdgeInsets.all( 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     title,style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 12,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                   ),),

@@ -24,20 +24,21 @@ class CardItem extends StatelessWidget {
                   Positioned(
                       right: 0,
                       left: 0,
-                      bottom: -6,
+                      bottom: -5,
                       child: Image.asset('assets/shadow.png')),
                   Center(
                       child:
-                      Image.asset(image,width: 110,)),
+                      Image.network(image,width: 100,)),
 
 
                 ]),
             Gap(10),
             CustomText(
-              text:text,weight: FontWeight.w600,fontSize: 16,),
+              text:text,weight: FontWeight.w600,fontSize: 13.5,),
             Gap(4),
             CustomText(
-              text:desc,weight: FontWeight.w400,fontSize: 16,),
+              text:desc,weight: FontWeight.w400,fontSize: 12,),
+            Spacer(),
             Row(
               children: [
                 Image.asset('assets/star.png',width: 16,),
@@ -48,7 +49,7 @@ class CardItem extends StatelessWidget {
                 Icon(CupertinoIcons.heart_fill,color: AppColors.primaryColor,)
               ],
             ),
-
+            Gap(5),
           ],
         ),
       ),

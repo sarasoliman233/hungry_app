@@ -41,7 +41,7 @@ late int selectedIndex;
             ,
             child: Container(
               margin: EdgeInsets.only(right: 8),
-              padding: EdgeInsets.symmetric(horizontal: 27,vertical: 13),
+              padding: EdgeInsets.symmetric(horizontal: 27,vertical: 10),
               decoration: BoxDecoration(
                   color:selectedIndex==index? AppColors.primaryColor : Color(0xffF3F4F6),
                   borderRadius: BorderRadius.circular(20)
