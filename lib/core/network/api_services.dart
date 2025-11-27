@@ -24,7 +24,7 @@ final DioClient _dioClient=DioClient();
  
 ///Post
 
-Future<dynamic>post(String endPoints,Map<String,dynamic>body)async{
+Future<dynamic>post(String endPoints,dynamic body)async{
 
   try {
     final response=await _dioClient.dio.post(endPoints,data: body);
@@ -39,7 +39,7 @@ Future<dynamic>post(String endPoints,Map<String,dynamic>body)async{
 ///Put || Update
 
 
-Future<dynamic>put(String endPoints,Map<String,dynamic>body)async{
+Future<dynamic>put(String endPoints,dynamic body)async{
 
   try {
     final response=await _dioClient.dio.put(endPoints,data: body);
@@ -53,7 +53,7 @@ Future<dynamic>put(String endPoints,Map<String,dynamic>body)async{
 
 ///Delete
 
-Future<dynamic>delete(String endPoints,Map<String,dynamic>body)async{
+Future<dynamic>delete(String endPoints,dynamic body)async{
 
   try {
     final response=await _dioClient.dio.delete(endPoints,data: body);

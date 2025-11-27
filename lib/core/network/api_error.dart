@@ -5,9 +5,10 @@ class ApiError{
 
   ApiError({ required this.message, this.statusCode});
 
-  String isString(){
+@override
+  String toString(){
 
-    return 'error is $message (StatusCode is :$statusCode)';
+    return message;
   }
 
 }

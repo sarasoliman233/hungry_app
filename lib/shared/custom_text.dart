@@ -7,11 +7,12 @@ class CustomText extends StatelessWidget {
     required this.text,
      this.color,
      this.weight,
-     this.fontSize});
+     this.fontSize, this.maxLine});
 
 
 final String text;
 final Color? color;
+final int? maxLine;
 final FontWeight? weight;
 final double? fontSize;
 
@@ -19,7 +20,7 @@ final double? fontSize;
   Widget build(BuildContext context) {
     return Text(
      text,
-      maxLines: 2,
+      maxLines: maxLine ?? 2,
       overflow: TextOverflow.ellipsis,
       textScaler: TextScaler.linear(1.0),
       style: TextStyle(

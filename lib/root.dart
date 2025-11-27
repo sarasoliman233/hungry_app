@@ -31,42 +31,45 @@ class _RootState extends State<Root> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: pageController,
-        children: screens,
-        physics: NeverScrollableScrollPhysics(),
-      ),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: PageView(
+          controller: pageController,
+          children: screens,
+          physics: NeverScrollableScrollPhysics(),
+        ),
 
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(10),
-         decoration: BoxDecoration(
-           borderRadius: BorderRadius.only(
-             bottomRight: Radius.circular(0),
-             bottomLeft: Radius.circular(0),
-             topRight: Radius.circular(30),
-             topLeft: Radius.circular(30),
+        bottomNavigationBar: Container(
+          padding: EdgeInsets.all(10),
+           decoration: BoxDecoration(
+             borderRadius: BorderRadius.only(
+               bottomRight: Radius.circular(0),
+               bottomLeft: Radius.circular(0),
+               topRight: Radius.circular(30),
+               topLeft: Radius.circular(30),
+             ),
+             color: AppColors.primaryColor
            ),
-           color: AppColors.primaryColor
-         ),
-        child: BottomNavigationBar(
-          elevation: 0,
-            backgroundColor: Colors.transparent,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey.shade500.withOpacity(0.7),
-            currentIndex: currentScreen,
-            onTap: (index){
-            setState(() => currentScreen=index);
-            pageController.jumpToPage(currentScreen);
-            },
-            items: [
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart),label: 'Cart'),
-              BottomNavigationBarItem(icon: Icon(Icons.local_dining_outlined),label: 'Order History'),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.person),label: 'Profile'),
+          child: BottomNavigationBar(
+            elevation: 0,
+              backgroundColor: Colors.transparent,
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.grey.shade500.withOpacity(0.7),
+              currentIndex: currentScreen,
+              onTap: (index){
+              setState(() => currentScreen=index);
+              pageController.jumpToPage(currentScreen);
+              },
+              items: [
+                BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label: 'Home'),
+                BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart),label: 'Cart'),
+                BottomNavigationBarItem(icon: Icon(Icons.local_dining_outlined),label: 'Order History'),
+                BottomNavigationBarItem(icon: Icon(CupertinoIcons.person),label: 'Profile'),
 
-            ]),
+              ]),
+        ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/app_colors.dart';
+import 'package:hungry/features/auth/data/auth_repo.dart';
 import 'package:hungry/features/auth/views/login_view.dart';
 import 'package:hungry/root.dart';
 
@@ -22,6 +23,25 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   late AnimationController _imageController;
   late Animation<double> _logoAnimation;
   late Animation<double> _imageAnimation;
+
+  AuthRepo authRepo=AuthRepo();
+
+  Future<void>_checkLogin()async{
+    try {
+     final user=await authRepo.autoLogin();
+      if(!mounted)return;
+      if(authRepo.isGuest){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>Root()));
+      }else if(user!=null){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>Root()));
+      }else{
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>LoginView()));
+      }
+    }catch (e) {
+     print('Error from splash:${e.toString()}');
+    }
+
+  }
 
   @override
   void initState() {
@@ -55,13 +75,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     });
 
     // Navigate after 3 seconds
-    Future.delayed(
-      const Duration(seconds: 4),
-          () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (c) => const LoginView()),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 3),  _checkLogin);
   }
 
   @override
